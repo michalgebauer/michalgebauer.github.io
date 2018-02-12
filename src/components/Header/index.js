@@ -1,33 +1,28 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+  <Navbar>
+    <Navbar.Header>
+      <Navbar.Brand>
         <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Michal Gebauer Blog
+            to="/"
+          >
+            Michal Gebauer Blog
         </Link>
-      </h1>
-    </div>
-  </div>
+      </Navbar.Brand>
+    </Navbar.Header>
+    <Nav pullRight>
+      <NavItem>
+        <Link
+              to="/"
+            >
+              Author
+          </Link>
+        </NavItem>
+    </Nav>
+  </Navbar>
 )
 
 export default Header
