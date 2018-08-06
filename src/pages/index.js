@@ -1,29 +1,27 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
-import { Panel } from 'react-bootstrap'
+import React from 'react';
+import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
+import { PageWrapper } from '../components/PageWrapper';
 
 export default function Index({ data }) {
-  const { edges: posts } = data.allMarkdownRemark
+  const { edges: posts } = data.allMarkdownRemark;
   return (
-    <div className="blog-posts">
+    <PageWrapper pageType="Blogs">
       {posts
-        .filter(post => post.node.frontmatter.title.length > 0)
+        .filter(post => post.node.frontmatter.title.length > 0 && post.node.frontmatter.path !== '/about')
         .map(({ node: post }) => {
           return (
-            <Panel key={post.id}>
-              <Panel.Body>
-                <h2>
-                  <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-                </h2>
-                <h3>{post.frontmatter.date}</h3>
-                <p>{post.excerpt}</p>
-              </Panel.Body>
-            </Panel>
-          )
+            <div key={post.id}>
+              <h2>
+                <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
+              </h2>
+              <h3>{post.frontmatter.date}</h3>
+              <p>{post.excerpt}</p>
+            </div>
+          );
         })}
-    </div>
-  )
+    </PageWrapper>
+  );
 }
 
 export const pageQuery = graphql`
@@ -37,9 +35,10 @@ export const pageQuery = graphql`
             title
             date(formatString: "MMMM DD, YYYY")
             path
+            label
           }
         }
       }
     }
   }
-`
+`;

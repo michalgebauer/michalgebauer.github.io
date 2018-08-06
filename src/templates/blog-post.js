@@ -1,25 +1,26 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { PageHeader } from 'react-bootstrap'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { PageWrapper } from '../components/PageWrapper';
+import Img from 'gatsby-image';
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query we'll write in a bit
-}) {
-  const { markdownRemark: post } = data // data.markdownRemark holds our post data
+export default function Template({ data }) {
+  const { markdownRemark: post } = data;
   return (
-    <div className="blog-post-container">
-      <PageHeader>
-        {post.frontmatter.title}
-      </PageHeader>
-      <Helmet title={`Michal Gebauer Blog - ${post.frontmatter.title}`} />
-      <div className="blog-post">
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
+    <PageWrapper pageType={post.frontmatter.path === '/about' ? 'About' : 'Blog'}>
+      {post.frontmatter.image && (
+        <div style={{ position: 'relative' }}>
+          <Img title="About" alt="About" sizes={post.frontmatter.image.childImageSharp.sizes} />
+          <h1 style={{ position: 'absolute', top: '20px', paddingLeft: '15px', color: '#fff' }}>
+            {post.frontmatter.title}
+          </h1>
+        </div>
+      )}
+      <div className="container">
+        <h1 style={{ paddingTop: '25px', paddingBottom: '25px' }}>{post.frontmatter.title}</h1>
+        <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
-    </div>
-  )
+    </PageWrapper>
+  );
 }
 
 export const pageQuery = graphql`
@@ -30,7 +31,16 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        label
+        image {
+          publicURL
+          childImageSharp {
+            sizes(maxWidth: 1240) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }
-`
+`;
