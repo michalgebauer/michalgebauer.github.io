@@ -1,27 +1,28 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import './Courses.css';
 
 export const Course = ({ course }) => {
   return (
-    <div className="col-sm-4" style={{ paddingTop: '15px', fontSize: '18px' }}>
+    <div className="Course col-sm-4">
       <Link to="/">
         <div>
           <h2>
-            <i className={`${course.icon} fa-2x`} style={{ marginRight: '15px' }} />
+            <i className={`${course.icon} fa-2x`} />
             {course.name}
           </h2>
         </div>
       </Link>
-      <div style={{ color: '#777' }}>{course.description}</div>
+      <div className="course-description">{course.description}</div>
     </div>
   );
 };
 
 export const Courses = () => {
   return (
-    <section style={{ background: '#eee', paddingBottom: '40px' }}>
+    <section className="Courses">
       <div className="container">
-        <h1 style={{ color: '#777' }}>My offered Courses</h1>
+        <h1>My offered Courses</h1>
         <div className="row">
           <Course
             course={{
@@ -44,7 +45,7 @@ export const Courses = () => {
               name: 'Spring',
               icon: 'fas fa-leaf',
               description:
-                'Spring is a java enterprise framework which helps you to create full production ready application in amazingly short time.'
+                'Java enterprise framework which helps you to create full production ready application in amazingly short time.'
             }}
           />
         </div>
@@ -54,7 +55,7 @@ export const Courses = () => {
               name: 'React',
               icon: 'fab fa-react',
               description:
-                'React is a javascript library made by Facebook and used by half of the modern pages on internet. It is my personal favourite for frontent development.'
+                'A javascript library made by Facebook and used by half of the modern pages on the internet. It is my personal favourite for frontend development.'
             }}
           />
           <Course
@@ -62,7 +63,7 @@ export const Courses = () => {
               name: 'jQuery',
               icon: 'fas fa-dollar-sign',
               description:
-                'jQuery is a library which used to be the only choice for front-end development in javascript. It is still used by plenty of (not only legacy) applications.'
+                'A library which used to be the only choice for front-end development in javascript. It is still used by plenty of (not only legacy) applications.'
             }}
           />
         </div>

@@ -8,21 +8,6 @@ a {
   outline: none;
 }
 
-.navbar-default {
-  background-color: #fff;
-  border-color: #fff;
-  -webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 5px 0 rgba(0, 0, 0, 0.06),
-    0 1px 10px 0 rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 5px 0 rgba(0, 0, 0, 0.06), 0 1px 10px 0 rgba(0, 0, 0, 0.08);
-}
-
-.nav a {
-  padding: 0 8px 0px 8px;
-  text-decoration: none;
-  display: inline-block;
-  outline: none;
-}
-
 .mi3o-logo {
   color: #0466ad;
   font-family: Consolas, 'Courier New', monospace;
@@ -31,7 +16,3 @@ a {
 .mi3o-logo .bracket {
   color: #000;
 }
-
-/* .nav .active-menu.active-menu {
-  color: #8490ff;
-} */

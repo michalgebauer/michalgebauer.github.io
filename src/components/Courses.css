@@ -1,0 +1,22 @@
+.Course {
+  padding-top: 15px;
+  font-size: 18px;
+}
+
+.Course i {
+  margin-right: 15px;
+}
+
+.Course .course-description {
+  color: #777;
+}
+
+.Courses {
+  background: #eee;
+  padding-bottom: 70px;
+}
+
+.Courses h1 {
+  padding-top: 20px;
+  color: #777;
+}

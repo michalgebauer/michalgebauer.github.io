@@ -1,0 +1,15 @@
+.BlogPost {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.BlogPost h1 {
+  padding-bottom: 25px;
+}
+
+.image-heading {
+  position: absolute;
+  top: 20px;
+  padding-left: 15px;
+  color: #fff;
+}

@@ -1,0 +1,19 @@
+.Footer {
+  background: #444;
+  color: #fff;
+  padding: 100px;
+}
+
+.Footer li {
+  list-style: none;
+  padding-bottom: 15px;
+}
+
+.Footer ul {
+  padding-left: 0px;
+  margin-top: 20px;
+}
+
+.Footer li a {
+  padding: 10px;
+}
