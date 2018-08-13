@@ -1,28 +1,28 @@
 {
   "assetsByChunkName": {
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-36718fb06be99949a126.js",
-      "component---src-pages-index-js-36718fb06be99949a126.js.map"
+      "component---src-pages-index-js-81321822afbc42a34dbc.js",
+      "component---src-pages-index-js-81321822afbc42a34dbc.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
       "path----557518bd178906f8d58a.js.map"
     ],
     "path---courses": [
-      "path---courses-5f95bbabe27af5cb346a.js",
-      "path---courses-5f95bbabe27af5cb346a.js.map"
+      "path---courses-334fd0943c748f9b2cb7.js",
+      "path---courses-334fd0943c748f9b2cb7.js.map"
     ],
     "component---src-templates-blog-post-js": [
-      "component---src-templates-blog-post-js-33dcdc3be18f90ef761f.js",
-      "component---src-templates-blog-post-js-33dcdc3be18f90ef761f.js.map"
+      "component---src-templates-blog-post-js-8b578ee482b7e529abf9.js",
+      "component---src-templates-blog-post-js-8b578ee482b7e529abf9.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-2053e36ce43677ff5b78.js",
-      "component---src-layouts-index-js-2053e36ce43677ff5b78.js.map"
+      "component---src-layouts-index-js-fdf135fded1da53dd1e4.js",
+      "component---src-layouts-index-js-fdf135fded1da53dd1e4.js.map"
     ],
     "path---index": [
-      "path---index-28a1b35f2058094b3401.js",
-      "path---index-28a1b35f2058094b3401.js.map"
+      "path---index-ddb1639e85e7439f2a8c.js",
+      "path---index-ddb1639e85e7439f2a8c.js.map"
     ],
     "component---src-pages-404-js": [
       "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
@@ -39,13 +39,13 @@
       "path---404-html-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---first-test": [
-      "path---first-test-54f9396a68405221c1f5.js",
-      "path---first-test-54f9396a68405221c1f5.js.map"
+      "path---first-test-10f7674bf59003adc4fb.js",
+      "path---first-test-10f7674bf59003adc4fb.js.map"
     ],
     "app": [
-      "app-b8fb6827df104d432e0d.js",
+      "app-d8ac1bd8096fa34c216c.js",
       "build-js-styles.css",
-      "app-b8fb6827df104d432e0d.js.map",
+      "app-d8ac1bd8096fa34c216c.js.map",
       "build-js-styles.css.map"
     ],
     "path---404": [
@@ -53,8 +53,8 @@
       "path---404-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---about": [
-      "path---about-1f78bf9153e9536621a6.js",
-      "path---about-1f78bf9153e9536621a6.js.map"
+      "path---about-2cef4a259a7d899eb800.js",
+      "path---about-2cef4a259a7d899eb800.js.map"
     ]
   }
 }
