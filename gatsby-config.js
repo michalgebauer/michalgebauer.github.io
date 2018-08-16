@@ -1,7 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: 'Michal Gebauer - Blog',
-    author: 'Michal Gebauer'
+    author: 'Michal Gebauer',
+    siteUrl: 'https://mi3o.com',
+    url: 'https://mi3o.com',
+    description: 'Full stack developer Blog'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -85,6 +88,59 @@ module.exports = {
         anonymize: true,
         // Setting this parameter is also optional
         respectDNT: true
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                  custom_elements: [{ 'content:encoded': edge.node.html }]
+                });
+              });
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  limit: 1000,
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                  filter: {frontmatter: { type: { eq: "blog" } }}
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      frontmatter {
+                        path
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml'
+          }
+        ]
       }
     }
   ]

@@ -10,30 +10,28 @@ export default function Index({ data }) {
     <PageWrapper pageType="Blogs">
       <div className="container" style={{ paddingTop: '60px', paddingBottom: '50px' }}>
         <div className="row">
-          {posts
-            .filter(post => post.node.frontmatter.title.length > 0 && post.node.frontmatter.path !== '/about')
-            .map(({ node: post }) => {
-              return (
-                <div key={post.id} className="col-md-6">
-                  <div>
-                    {post.frontmatter.image && (
-                      <Img
-                        className="blog-thumbnail"
-                        alt={post.frontmatter.title}
-                        sizes={post.frontmatter.image.childImageSharp.sizes}
-                      />
-                    )}
-                  </div>
-                  <div>
-                    <h2>
-                      <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-                    </h2>
-                    <h3>{post.frontmatter.date}</h3>
-                    <p>{post.excerpt}</p>
-                  </div>
+          {posts.filter(post => post.node.frontmatter.type === 'blog').map(({ node: post }) => {
+            return (
+              <div key={post.id} className="blog-card col-md-6">
+                <div>
+                  {post.frontmatter.image && (
+                    <Img
+                      className="blog-thumbnail"
+                      alt={post.frontmatter.title}
+                      sizes={post.frontmatter.image.childImageSharp.sizes}
+                    />
+                  )}
                 </div>
-              );
-            })}
+                <div>
+                  <h2>
+                    <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
+                  </h2>
+                  <div className="blog-meta">{post.frontmatter.date}</div>
+                  <p>{post.excerpt}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </PageWrapper>
@@ -52,6 +50,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             path
             label
+            type
             image {
               publicURL
               childImageSharp {

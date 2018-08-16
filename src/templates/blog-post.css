@@ -4,7 +4,11 @@
 }
 
 .BlogPost h1 {
-  padding-bottom: 25px;
+  padding-bottom: 10px;
+}
+
+.BlogPost h4 {
+  color: #777;
 }
 
 .image-heading {
@@ -12,4 +16,8 @@
   top: 20px;
   padding-left: 15px;
   color: #fff;
+}
+
+.blog-post-content {
+  padding-top: 25px;
 }

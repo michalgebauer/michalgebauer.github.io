@@ -13,7 +13,8 @@ export const Header = () => {
           <Navbar.Brand>
             <Link to="/">
               <span className="mi3o-logo">
-                <span className="bracket">&#123;</span>mI3O<span className="bracket">&#125;</span>
+                <span className="bracket">&#123;</span>mI3O<span className="tld">.com</span>
+                <span className="bracket">&#125;</span>
               </span>
             </Link>
           </Navbar.Brand>
@@ -21,14 +22,14 @@ export const Header = () => {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight={true}>
-            <NavItem eventKey={1} href="#">
-              <Link to="/">Blog</Link>
+            <NavItem eventKey={1} href="/">
+              Blog
             </NavItem>
-            <NavItem eventKey={2} href="#">
-              <Link to="/courses">Courses</Link>
+            <NavItem eventKey={2} href="/courses">
+              Courses
             </NavItem>
-            <NavItem eventKey={3} href="#">
-              <Link to="/about">About me</Link>
+            <NavItem eventKey={3} href="/about">
+              About me
             </NavItem>
           </Nav>
         </Navbar.Collapse>

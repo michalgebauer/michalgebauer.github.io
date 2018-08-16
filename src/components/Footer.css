@@ -1,7 +1,8 @@
 .Footer {
   background: #444;
   color: #fff;
-  padding: 100px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .Footer li {
@@ -16,4 +17,8 @@
 
 .Footer li a {
   padding: 10px;
+}
+
+.Footer a:hover {
+  color: #03a9f4;
 }

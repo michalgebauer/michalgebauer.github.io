@@ -1,0 +1,18 @@
+.SharePanel {
+  padding-top: 50px;
+}
+
+.SharePanel h4 {
+  padding-bottom: 20px;
+}
+
+.SharePanel div.SocialMediaShareButton {
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.SharePanel div.SocialMediaShareButton:focus {
+  outline: 0;
+}

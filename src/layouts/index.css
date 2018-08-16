@@ -16,3 +16,8 @@ a {
 .mi3o-logo .bracket {
   color: #000;
 }
+
+.mi3o-logo .tld {
+  color: #555;
+  font-size: 0.8em;
+}
