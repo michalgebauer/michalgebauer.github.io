@@ -1,10 +1,150 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Michal Gebauer - Blog]]></title><description><![CDATA[Full stack developer Blog]]></description><link>https://michalgebauer.github.io</link><generator>RSS for Node</generator><lastBuildDate>Tue, 14 Aug 2018 19:45:26 GMT</lastBuildDate><item><title><![CDATA[My First Gatsby Post]]></title><description><![CDATA[Oooooh-weeee, my first blog post!]]></description><link>https://michalgebauer.github.io/first-test</link><guid isPermaLink="false">https://michalgebauer.github.io/first-test</guid><pubDate>Sat, 10 Feb 2018 17:12:33 GMT</pubDate><content:encoded>&lt;p&gt;Oooooh-weeee, my first blog post!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Michal Gebauer - Blog]]></title><description><![CDATA[Full stack developer Blog]]></description><link>https://mi3o.com</link><generator>RSS for Node</generator><lastBuildDate>Fri, 17 Aug 2018 12:48:26 GMT</lastBuildDate><item><title><![CDATA[How GraphQL beats REST when I am hungry]]></title><description><![CDATA[REST web services proved to be solid standard for communication and became easy way to expose server interfaces to clients. To introduce…]]></description><link>https://mi3o.com/how-graphql-beats-rest</link><guid isPermaLink="false">https://mi3o.com/how-graphql-beats-rest</guid><pubDate>Thu, 16 Aug 2018 17:12:33 GMT</pubDate><content:encoded>&lt;p&gt;REST web services proved to be solid standard for communication and became easy way to expose server interfaces to clients. To introduce them into project is as easy as googling Spring Data Rest (which generates all web services for you). Likewise, exploring and consuming REST web services does not cost you much effort as well.&lt;/p&gt;
+&lt;p&gt;So then, what in the world there happens to be some &apos;&lt;em&gt;GraphQL&lt;/em&gt;&apos;?&lt;/p&gt;
+&lt;h2&gt;How cooking looks like with REST&lt;/h2&gt;
+&lt;p&gt;To show you how GraphQL may save your life we&apos;ll make some cooking. Provided healthy is the new sexy I made up the following recipe:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;
+      &lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;HealthyRecipe&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ingredients &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      bakon&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      broccoli &lt;span class=&quot;token comment&quot;&gt;// yes, the healthy part&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;cook&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ingredients&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;splice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// no one is watching&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;fry&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ingredients&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;Man! I am already starving but before we can start real cooking we need to &lt;em&gt;GET&lt;/em&gt; the ingredients. Looks like simple task, however, we must follow some rules of the REST imaginary world:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;there is no supermarket where we can buy all what we need in one stop, every item has its own shop (endpoint)&lt;/li&gt;
+&lt;li&gt;one person can visit only one shop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let&apos;s have a look at the map to have a better picture:&lt;/p&gt;
+&lt;br /&gt;
+&lt;p&gt;
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 768px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 51.29482071713147%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACuklEQVQozx2S3U8TeRSG58/aG81GjVkDCq60tlhqSllgWaCr2CICtvRrpp1OaacfU9ppB6uIikWgpfUDiQiJicnuzV6sf4AxXnilhmU30cefe3Fy3pyb8573OVI730e74uZBrp+y3EdVcaLPXmA94+GvZwYHqyE6xgR7dT81Q8eqmAQXVNJakZy+hCKnedxqsfN8l62iDymRTOLIfsKhvacn8YEz0ff8OPuW7sg7FndAMXZ4UR3j6XIAm/qOLu0Lp+JHHAsfcTL+H8fD/2IvfuGK+ZGVfBzJUP1MJjtMaS0Gg4+Y+K4zTxmNbTES22QlHOO1Nc7r1WtY2SjzM3PcvH6D2M15snKUoqaIq5Lcnwuwb15Dame66eS62cr3oPh+4F6qm2fL/WwUznMr0cNLfYiD8iR7pVH2jcs0E3aq02dpqQPsZL28NH7lUdjJ0qyNTmUKaSPdS0N3saz2kwtdwFQcPDC8bNZGqKpu2iK/V/UrbBeHeVIe447ixj94GjXgYLvs58XtOZG/j1rUw331F6S1+Gms+eNUQ6JHu1iOncWMdLGR/5mGcLSd89JMeXlc8bGWHiHlt1GXB8lO29FnHEIP8XBxjEZm7P+5dCs1TFQrIWeWCKoVFtIWQa1GLFvl4M831JZKWDM29m5fp5EeZSUxxK4VoF0SCxaHqSse8rNOzLCb3EwfUiql0pUCW+aQn5R/OBE55GT0UPTPDJpfkQM19pIumqUJKiKr4oKDcsxFNeLCilyioXlo54dpFSbp1GWkhmbHSo9T0X6jpvuoG4JmIUA2eZV48HfMkIs78kWqcj+ruptGyUtZ/Gop5MSYtwvHA6xrl7mrjfPmj10BJXGGbUG6qZ9jQ9RmoU+4cbKmCzhZh8hxgHu5S6wVBmiaXrYqXtYND+WIDXX6HJkbvTwU8HatKf7ev8s3WE8QSQwJclEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;map&quot;
+        title=&quot;&quot;
+        src=&quot;/static/map-53ef58ee8b032f2b3592bd193c975be5-cda39.png&quot;
+        srcset=&quot;/static/map-53ef58ee8b032f2b3592bd193c975be5-07ba0.png 192w,
+/static/map-53ef58ee8b032f2b3592bd193c975be5-7325c.png 384w,
+/static/map-53ef58ee8b032f2b3592bd193c975be5-cda39.png 768w,
+/static/map-53ef58ee8b032f2b3592bd193c975be5-9c2f7.png 1004w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;/p&gt;
+&lt;br /&gt;
+&lt;p&gt;OK, since I am hungry and also a bit clever I will send Frodo Baggins to butcher shop and at the same time Sam Gamgee to buy the broccoli:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;
+      &lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; frodo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/rest/meat?type=pork&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; sam &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/rest/veggies?type=cabbage&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// this promise will be resolved after both hobbits come back&lt;/span&gt;
+Promise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;frodo&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; sam&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; hurray&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; we can cook&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;If you are reading this I am probably dead. I did not survive waiting for the ingredients.
+It turned out that Frodo was not able to buy only the bacon, he had to take the entire pig. And now imagine how fast you can run with 300 kilos (661.386787 pounds) of meat while watching out for riders of Rohan.&lt;/p&gt;
+&lt;br /&gt;
+&lt;p&gt;
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 568px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 58.97887323943662%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAABA//EABYBAQEBAAAAAAAAAAAAAAAAAAMBAv/aAAwDAQACEAMQAAABGvnhKuJYv//EABsQAQACAgMAAAAAAAAAAAAAAAIAAQMREhMh/9oACAEBAAEFAhkUT4rxQAkdR1eOqn//xAAXEQEAAwAAAAAAAAAAAAAAAAAAARES/9oACAEDAQE/Abht/8QAFhEBAQEAAAAAAAAAAAAAAAAAABES/9oACAECAQE/AYw//8QAHBAAAQMFAAAAAAAAAAAAAAAAABEicQEQITFB/9oACAEBAAY/Asago5oqoTbp/8QAGxAAAwADAQEAAAAAAAAAAAAAAAERITFRQWH/2gAIAQEAAT8h19TrlQpklJrMG+w4qIEXh5K5VzVY6Ui/T//aAAwDAQACAAMAAAAQWy//xAAXEQEBAQEAAAAAAAAAAAAAAAABACFR/9oACAEDAQE/EAjTYHL/xAAYEQADAQEAAAAAAAAAAAAAAAAAAREhUf/aAAgBAgEBPxBvceF9P//EABsQAQEAAwADAAAAAAAAAAAAAAERACExYXGR/9oACAEBAAE/EGbtZQh7TDNU0OpRs3vGzkGgry77htdqVYpKfcGQnYFQmBjAVj7n/9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;onedoesnotsimply&quot;
+        title=&quot;&quot;
+        src=&quot;/static/onedoesnotsimply-c425266d21ff2e47a54263376dc15dbc-f1497.jpg&quot;
+        srcset=&quot;/static/onedoesnotsimply-c425266d21ff2e47a54263376dc15dbc-bf87e.jpg 192w,
+/static/onedoesnotsimply-c425266d21ff2e47a54263376dc15dbc-25a3d.jpg 384w,
+/static/onedoesnotsimply-c425266d21ff2e47a54263376dc15dbc-f1497.jpg 568w&quot;
+        sizes=&quot;(max-width: 568px) 100vw, 568px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;/p&gt;
+&lt;br /&gt;
+&lt;p&gt;In paralell GraphQL world this, what happened, is called &lt;em&gt;overfetching&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;
+      &lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    bacon&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// I only needed this,&lt;/span&gt;
+    ribs&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// but got also this&lt;/span&gt;
+    ham&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// and this&lt;/span&gt;
+    leg&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// and this&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    broccoli&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// only one job you had&lt;/span&gt;
+    cabbage&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    cauliflower&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    kale&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;To sum it up, REST services split business model among several url endpoints. In consequence you need to do more requests to the server if data from one endpoint are not sufficient for you. In this case, the process takes as long as long lasts the slowest response.&lt;/p&gt;
+&lt;p&gt;Additionally, REST services strictly define witch attributes of model are sent back to client. In most cases this means client downloads more data than is necessary which in turn means the response is slower.&lt;/p&gt;
+&lt;h2&gt;How cooking looks like with GraphQL&lt;/h2&gt;
+&lt;p&gt;As you are probably expecting, GraphQL shines in this chapter. Long story short, GraphQL service is a shopping mall which allows you to buy whatever you need on the spot (there is only one endpoint). Additionally, you can explicitly list which items you want to buy and therefore it is faster and &lt;em&gt;beats REST when I am hungry&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;
+      &lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/graphql&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  method&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;POST&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  headers&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Content-Type&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;application/json&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  body&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// I ask only for bacon and broccoli&lt;/span&gt;
+    query&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+      {
+        ingredients {
+          pork {
+            bacon
+          }
+          cabbage {
+            broccoli
+          }
+        }
+      }
+    `&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; hurray&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; we can cook&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;And the result is that I made only one request to the server and I got exactly what I asked for:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;
       &lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  certificates&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;token string&quot;&gt;&apos;Oracle certified Java professional&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token string&quot;&gt;&apos;Oracle certified web components expert&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token string&quot;&gt;&apos;Certified Spring developer&apos;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;</content:encoded></item></channel></rss>
+  ingredients&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    pork&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      beacon&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// yummy&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    cabbage&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      brocolli&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// can&apos;t find appropriate interjection&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h2&gt;Should we throw away REST?&lt;/h2&gt;
+&lt;p&gt;GraphQL wins where the network connection is in question such as front-end to back-end communication. Interraction among systems placed in the same datacenter will not get that much of benefits and there is the room were good old REST might survive. I personaly like both of them but prefer GraphQL for the front-end.&lt;/p&gt;
+&lt;p&gt;Thanks for reading, stay tunned for more posts to come.&lt;/p&gt;</content:encoded></item></channel></rss>
