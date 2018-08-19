@@ -8,7 +8,7 @@ author: "Michal Gebauer"
 type: "page"
 ---
 
-Java & javascript fullstack developer. **Oracle certified web expert**, **Pivotal certified Spring developer**, lecturer.
+Java & javascript fullstack developer. **Oracle certified web expert**, **Pivotal certified Spring professional**, lecturer.
 
 > I've been programming since primary school and for last 15 years actively participating on different (mainly java based) projects. I work on both front-end and back-end including UX, security, database and whole development life cycle as dev ops.
 

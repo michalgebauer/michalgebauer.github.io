@@ -7,8 +7,17 @@
   padding-bottom: 10px;
 }
 
+.BlogPost h2 {
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
 .BlogPost h4 {
   color: #777;
+}
+
+.BlogPost .gatsby-highlight {
+  margin-bottom: 40px;
 }
 
 .image-heading {
@@ -20,4 +29,12 @@
 
 .blog-post-content {
   padding-top: 25px;
+}
+
+.BlogPost code {
+  font-size: 14px;
+}
+
+.me-full-image {
+  padding: 60px;
 }

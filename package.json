@@ -24,9 +24,7 @@
     "react-helmet": "^5.2.0",
     "react-share": "^2.2.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {

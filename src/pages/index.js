@@ -6,6 +6,7 @@ import './index.css';
 
 export default function Index({ data }) {
   const { edges: posts } = data.allMarkdownRemark;
+  console.log(data.meImage.edges);
   return (
     <PageWrapper pageType="Blogs">
       <div className="container" style={{ paddingTop: '60px', paddingBottom: '50px' }}>
@@ -26,7 +27,12 @@ export default function Index({ data }) {
                   <h2>
                     <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
                   </h2>
-                  <div className="blog-meta">{post.frontmatter.date}</div>
+                  <div className="blog-meta">
+                    <div className="me-image">
+                      <Img sizes={data.meImage.sizes} />
+                    </div>
+                    <Link to="/about">Michal Gebauer</Link> | {post.frontmatter.date}
+                  </div>
                   <p>{post.excerpt}</p>
                 </div>
               </div>
@@ -34,12 +40,31 @@ export default function Index({ data }) {
           })}
         </div>
       </div>
+      {posts &&
+        posts.length < 4 && (
+          <div className="no-more-posts">
+            <div className="container">
+              <div className="col-sm-1 col-xs-3">
+                <i className="far fa-frown fa-2x" />
+              </div>
+              <div className="col-sm-11 col-xs-9">
+                Yest, that's it. <br /> But come back soon, since I am right now working on new post which might be
+                interesting for you ;-)
+              </div>
+            </div>
+          </div>
+        )}
     </PageWrapper>
   );
 }
 
 export const pageQuery = graphql`
   query IndexQuery {
+    meImage: imageSharp(id: { regex: "/me-cut-small.png/" }) {
+      sizes(maxWidth: 300) {
+        ...GatsbyImageSharpSizes
+      }
+    }
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {

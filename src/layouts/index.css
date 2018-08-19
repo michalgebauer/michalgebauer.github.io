@@ -11,6 +11,7 @@ a {
 .mi3o-logo {
   color: #0466ad;
   font-family: Consolas, 'Courier New', monospace;
+  font-size: 22px;
 }
 
 .mi3o-logo .bracket {
