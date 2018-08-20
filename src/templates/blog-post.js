@@ -20,7 +20,10 @@ export default function Template({ data }) {
           { name: 'og:description', content: post.excerpt },
           { name: 'twitter:description', content: post.excerpt },
           { name: 'og:image', content: site.siteMetadata.url + post.frontmatter.image.publicURL },
-          { name: 'twitter:image', content: site.siteMetadata.url + post.frontmatter.image.publicURL }
+          { name: 'twitter:image', content: site.siteMetadata.url + post.frontmatter.image.publicURL },
+          { name: 'og:type', content: 'blog' },
+          { name: 'twitter:card', content: 'summary' },
+          { name: 'twitter:url', content: site.siteMetadata.url + post.frontmatter.path }
         ]}
       />
       <PageWrapper pageType={post.frontmatter.path === '/about' ? 'About' : 'Blog'}>

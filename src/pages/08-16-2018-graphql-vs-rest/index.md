@@ -20,7 +20,7 @@ To show you how GraphQL may save your life we'll make some cooking. Provided hea
 class HealthyRecipe {
   constructor() {
     this.ingredients = [
-      bakon,
+      bacon,
       broccoli // yes, the healthy part
     ];
   }
@@ -68,7 +68,7 @@ It turned out Frodo was not allowed to buy only the bacon, he had to take the en
 
 <br />
 
-In paralell GraphQL world this, what happened, is called _overfetching_.
+In parallel GraphQL world this, what happened, is called _over-fetching_.
 
 ```javascript
 data = [
@@ -89,7 +89,7 @@ data = [
 
 To sum it up, REST services split business model among several url endpoints. In consequence you need to do more requests to the server if data from one endpoint are not sufficient for you. In this case, the process takes as long as long lasts the slowest response.
 
-Additionally, REST services strictly define witch attributes of model are sent back to client. In most cases this means client downloads more data than is necessary which in turn means the response is slower.
+Additionally, REST services strictly define which attributes of model are sent back to client. In most cases this means client downloads more data than is necessary which in turn means the response is slower.
 
 ## How cooking looks like with GraphQL
 
@@ -128,7 +128,7 @@ And the result is that I made only one request to the server and I got exactly w
       beacon: ... // yummy
     },
     cabbage: {
-      brocolli: ... // can't find appropriate interjection
+      broccoli: ... // can't find appropriate interjection
     }
   }
 };
@@ -136,6 +136,6 @@ And the result is that I made only one request to the server and I got exactly w
 
 ## Should we throw away REST?
 
-GraphQL wins in situations where the network connection is in question such as front-end to back-end communication. Interraction among systems placed in the same datacenter will not get that much of benefits and there is the room were good old REST might survive. I personaly like both of them but prefer GraphQL for the front-end.
+GraphQL wins in situations where the network connection is in question such as front-end to back-end communication. Interaction among systems placed in the same data center will not get that much of benefits and there is the room were good old REST might survive. I personally like both of them but prefer GraphQL for the front-end.
 
 Thanks for reading, stay tunned for more posts to come.
