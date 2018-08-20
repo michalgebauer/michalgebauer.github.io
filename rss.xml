@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Michal Gebauer - Blog]]></title><description><![CDATA[Full stack developer Blog]]></description><link>https://mi3o.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 19 Aug 2018 19:19:42 GMT</lastBuildDate><item><title><![CDATA[How GraphQL beats REST when I am hungry]]></title><description><![CDATA[REST web services proved to be solid standard for communication and became easy way to expose server interfaces to clients. To introduce…]]></description><link>https://mi3o.com/how-graphql-beats-rest</link><guid isPermaLink="false">https://mi3o.com/how-graphql-beats-rest</guid><pubDate>Thu, 16 Aug 2018 17:12:33 GMT</pubDate><content:encoded>&lt;p&gt;REST web services proved to be solid standard for communication and became easy way to expose server interfaces to clients. To introduce them into project is as easy as googling Spring Data Rest (which generates all web services for you). Likewise, exploring and consuming REST web services does not cost you much effort as well.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Michal Gebauer - Blog]]></title><description><![CDATA[Full stack developer Blog]]></description><link>https://mi3o.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 20 Aug 2018 07:47:01 GMT</lastBuildDate><item><title><![CDATA[How GraphQL beats REST when I am hungry]]></title><description><![CDATA[REST web services proved to be solid standard for communication and became easy way to expose server interfaces to clients. To introduce…]]></description><link>https://mi3o.com/how-graphql-beats-rest</link><guid isPermaLink="false">https://mi3o.com/how-graphql-beats-rest</guid><pubDate>Thu, 16 Aug 2018 17:12:33 GMT</pubDate><content:encoded>&lt;p&gt;REST web services proved to be solid standard for communication and became easy way to expose server interfaces to clients. To introduce them into project is as easy as googling Spring Data Rest (which generates all web services for you). Likewise, exploring and consuming REST web services does not cost you much effort as well.&lt;/p&gt;
 &lt;p&gt;So then, what in the world there happens to be some &apos;&lt;em&gt;GraphQL&lt;/em&gt;&apos;?&lt;/p&gt;
 &lt;h2&gt;How cooking looks like with REST&lt;/h2&gt;
 &lt;p&gt;To show you how GraphQL may save your life we&apos;ll make some cooking. Provided healthy is the new sexy I made up the following recipe:&lt;/p&gt;
@@ -6,7 +6,7 @@
       &lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;HealthyRecipe&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ingredients &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-      bakon&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      bacon&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
       broccoli &lt;span class=&quot;token comment&quot;&gt;// yes, the healthy part&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
@@ -88,7 +88,7 @@ It turned out Frodo was not allowed to buy only the bacon, he had to take the en
   &lt;/span&gt;
   &lt;/p&gt;
 &lt;br /&gt;
-&lt;p&gt;In paralell GraphQL world this, what happened, is called &lt;em&gt;overfetching&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In parallel GraphQL world this, what happened, is called &lt;em&gt;over-fetching&lt;/em&gt;.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;
       &lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -106,7 +106,7 @@ It turned out Frodo was not allowed to buy only the bacon, he had to take the en
 &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
       &lt;/div&gt;
 &lt;p&gt;To sum it up, REST services split business model among several url endpoints. In consequence you need to do more requests to the server if data from one endpoint are not sufficient for you. In this case, the process takes as long as long lasts the slowest response.&lt;/p&gt;
-&lt;p&gt;Additionally, REST services strictly define witch attributes of model are sent back to client. In most cases this means client downloads more data than is necessary which in turn means the response is slower.&lt;/p&gt;
+&lt;p&gt;Additionally, REST services strictly define which attributes of model are sent back to client. In most cases this means client downloads more data than is necessary which in turn means the response is slower.&lt;/p&gt;
 &lt;h2&gt;How cooking looks like with GraphQL&lt;/h2&gt;
 &lt;p&gt;As you are probably expecting, GraphQL shines in this chapter. Long story short, GraphQL service is a shopping mall which allows you to buy whatever you need on the spot (there is only one endpoint). Additionally, you can explicitly list which items you want to buy and therefore it is faster and &lt;em&gt;beats REST when I am hungry&lt;/em&gt;.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;
@@ -140,11 +140,11 @@ It turned out Frodo was not allowed to buy only the bacon, he had to take the en
       beacon&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// yummy&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     cabbage&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      brocolli&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// can&apos;t find appropriate interjection&lt;/span&gt;
+      broccoli&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// can&apos;t find appropriate interjection&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
       &lt;/div&gt;
 &lt;h2&gt;Should we throw away REST?&lt;/h2&gt;
-&lt;p&gt;GraphQL wins in situations where the network connection is in question such as front-end to back-end communication. Interraction among systems placed in the same datacenter will not get that much of benefits and there is the room were good old REST might survive. I personaly like both of them but prefer GraphQL for the front-end.&lt;/p&gt;
+&lt;p&gt;GraphQL wins in situations where the network connection is in question such as front-end to back-end communication. Interaction among systems placed in the same data center will not get that much of benefits and there is the room were good old REST might survive. I personally like both of them but prefer GraphQL for the front-end.&lt;/p&gt;
 &lt;p&gt;Thanks for reading, stay tunned for more posts to come.&lt;/p&gt;</content:encoded></item></channel></rss>
