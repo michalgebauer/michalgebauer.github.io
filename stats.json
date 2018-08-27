@@ -5,28 +5,32 @@
       "component---src-pages-index-js-a7560b696596ec406540.js.map"
     ],
     "path---how-graphql-beats-rest": [
-      "path---how-graphql-beats-rest-bbeee593c3241c741d6f.js",
-      "path---how-graphql-beats-rest-bbeee593c3241c741d6f.js.map"
+      "path---how-graphql-beats-rest-7c07470207df4f09a5bb.js",
+      "path---how-graphql-beats-rest-7c07470207df4f09a5bb.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
       "path----557518bd178906f8d58a.js.map"
     ],
+    "path---throwing-a-party": [
+      "path---throwing-a-party-2fc307235f33dda0640b.js",
+      "path---throwing-a-party-2fc307235f33dda0640b.js.map"
+    ],
     "path---courses": [
-      "path---courses-99a6d60d722bb04ae3d3.js",
-      "path---courses-99a6d60d722bb04ae3d3.js.map"
+      "path---courses-a38aabab92b73799a797.js",
+      "path---courses-a38aabab92b73799a797.js.map"
     ],
     "component---src-templates-blog-post-js": [
-      "component---src-templates-blog-post-js-b023b8f76da2841242a1.js",
-      "component---src-templates-blog-post-js-b023b8f76da2841242a1.js.map"
+      "component---src-templates-blog-post-js-1b5224d6c355864c73f0.js",
+      "component---src-templates-blog-post-js-1b5224d6c355864c73f0.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-7c84ac49b3a6b38648b5.js",
-      "component---src-layouts-index-js-7c84ac49b3a6b38648b5.js.map"
+      "component---src-layouts-index-js-1012786733918c95d9fa.js",
+      "component---src-layouts-index-js-1012786733918c95d9fa.js.map"
     ],
     "path---index": [
-      "path---index-9e0ea16f6b07ce62f5aa.js",
-      "path---index-9e0ea16f6b07ce62f5aa.js.map"
+      "path---index-fe646b31054f9d113a7a.js",
+      "path---index-fe646b31054f9d113a7a.js.map"
     ],
     "component---src-pages-404-js": [
       "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
@@ -43,9 +47,9 @@
       "path---404-html-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-bd82cb9f0595ddccc0a2.js",
+      "app-43d1f5a4b780ac460a64.js",
       "build-js-styles.css",
-      "app-bd82cb9f0595ddccc0a2.js.map",
+      "app-43d1f5a4b780ac460a64.js.map",
       "build-js-styles.css.map"
     ],
     "path---404": [
@@ -53,8 +57,8 @@
       "path---404-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---about": [
-      "path---about-d0bf00c63a05eb2e96df.js",
-      "path---about-d0bf00c63a05eb2e96df.js.map"
+      "path---about-e0cbf9aff3cbbb027b7b.js",
+      "path---about-e0cbf9aff3cbbb027b7b.js.map"
     ]
   }
 }
