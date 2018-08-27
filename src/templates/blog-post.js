@@ -25,7 +25,15 @@ export default function Template({ data }) {
           { name: 'twitter:card', content: 'summary' },
           { name: 'twitter:url', content: site.siteMetadata.url + post.frontmatter.path }
         ]}
-      />
+      >
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+        <script>
+          {`(adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-5691001381659710",
+          enable_page_level_ads: true
+        });`}
+        </script>
+      </Helmet>
       <PageWrapper pageType={post.frontmatter.path === '/about' ? 'About' : 'Blog'}>
         {post.frontmatter.image && (
           <div style={{ position: 'relative' }}>
@@ -48,10 +56,27 @@ export default function Template({ data }) {
                 )}
                 <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
                 {post.frontmatter.type === 'blog' && (
-                  <SharePanel
-                    title={post.frontmatter.title}
-                    shareUrl={`${site.siteMetadata.url}${post.frontmatter.path}`}
-                  />
+                  <div>
+                    <SharePanel
+                      title={post.frontmatter.title}
+                      shareUrl={`${site.siteMetadata.url}${post.frontmatter.path}`}
+                    />
+                    <h4 style={{ marginTop: '40px' }}>My recent posts:</h4>
+                    <div className="row">
+                      {data.recentPosts.edges
+                        .filter(
+                          p => p.node.frontmatter.path !== post.frontmatter.path && p.node.frontmatter.type === 'blog'
+                        )
+                        .map(p => (
+                          <div className="col-sm-6">
+                            <Link to={p.node.frontmatter.path}>
+                              <h3>{p.node.frontmatter.title}</h3>
+                            </Link>
+                            <p>{p.node.excerpt}</p>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
@@ -82,6 +107,23 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         url
+      }
+    }
+    recentPosts: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { draft: { ne: true } } }
+      limit: 4
+    ) {
+      edges {
+        node {
+          excerpt(pruneLength: 150)
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            path
+            type
+          }
+        }
       }
     }
     markdownRemark(frontmatter: { path: { eq: $path } }) {

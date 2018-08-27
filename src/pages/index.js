@@ -65,7 +65,10 @@ export const pageQuery = graphql`
         ...GatsbyImageSharpSizes
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { draft: { ne: true } } }
+    ) {
       edges {
         node {
           excerpt(pruneLength: 250)

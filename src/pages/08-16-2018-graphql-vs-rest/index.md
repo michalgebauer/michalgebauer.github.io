@@ -125,7 +125,7 @@ And the result is that I made only one request to the server and I got exactly w
 {
   ingredients: {
     pork: {
-      beacon: ... // yummy
+      bacon: ... // yummy
     },
     cabbage: {
       broccoli: ... // can't find appropriate interjection
