@@ -19,8 +19,14 @@ export default function Template({ data }) {
           { name: 'twitter:title', content: post.frontmatter.title },
           { name: 'og:description', content: post.excerpt },
           { name: 'twitter:description', content: post.excerpt },
-          { name: 'og:image', content: site.siteMetadata.url + post.frontmatter.image.publicURL },
-          { name: 'twitter:image', content: site.siteMetadata.url + post.frontmatter.image.publicURL },
+          {
+            name: 'og:image',
+            content: post.frontmatter.image ? site.siteMetadata.url + post.frontmatter.image.publicURL : ''
+          },
+          {
+            name: 'twitter:image',
+            content: post.frontmatter.image ? site.siteMetadata.url + post.frontmatter.image.publicURL : ''
+          },
           { name: 'og:type', content: 'blog' },
           { name: 'twitter:card', content: 'summary' },
           { name: 'twitter:url', content: site.siteMetadata.url + post.frontmatter.path }
@@ -68,7 +74,7 @@ export default function Template({ data }) {
                           p => p.node.frontmatter.path !== post.frontmatter.path && p.node.frontmatter.type === 'blog'
                         )
                         .map(p => (
-                          <div className="col-sm-6">
+                          <div className="col-sm-6" key={p.node.frontmatter.path}>
                             <Link to={p.node.frontmatter.path}>
                               <h3>{p.node.frontmatter.title}</h3>
                             </Link>

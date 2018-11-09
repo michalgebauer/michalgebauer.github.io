@@ -74,7 +74,7 @@ public class PartyService {
   }
 
   // Here is how to check if someone is allowed to be at party
-  public Friend isThisGuyVerified(String partyId) {
+  public Friend whoIsThisGuy(String partyId) {
     Friend friend = partyMap.get(partyId);
     if (friend == null) {
       throw new HeyManWhatAreYouDoingHereException();
@@ -93,7 +93,7 @@ public class BarService {
 
   public Beverage canIHave(String partyId, String type, int amount) {
     // Check if he is who ho he pretends to be
-    partyService.isThisGuyVerified(partyId);
+    partyService.whoIsThisGuy(partyId);
 
     // OK, no Exception was thrown - verified, handle his request
     // ...
@@ -105,7 +105,7 @@ public class SnackService {
 
   public Snack gimme(String partyId, String type) {
     // Check if he is who ho he pretends to be
-    partyService.isThisGuyVerified(partyId);
+    partyService.whoIsThisGuy(partyId);
 
     // OK, no Exception was thrown - verified, handle his request
     // ...
@@ -141,7 +141,7 @@ public class PartyService {
     // String partyId = UUID.randomUUID();
     // sessionMap.put(partyId, friend);
 
-    // every guest has its own wrist (thread)
+    // every guest has its own body (thread)
     // for the wristband ticket;
     partyThreadLocal.set(friend);
 
@@ -149,7 +149,7 @@ public class PartyService {
   }
 
   // we don't need partyId argument here anymore
-  public void isThisGuyVerified() {
+  public void whoIsThisGuy() {
     Friend friend = partyThreadLocal.get();
     if (friend == null) {
       throw new HeyManWhatAreYouDoingHereException();
@@ -160,7 +160,7 @@ public class PartyService {
 }
 ```
 
-Fine, we are half way there. Now we don't need the _partyId_ argument, but we still need to call the verification in all services and its methods:
+Fine, we are half way there. Now we don't need the _partyId_ argument, but we still need to call the verification in all services and theirs methods:
 
 ```java
 public class BarService {
@@ -168,7 +168,7 @@ public class BarService {
 
   public Beverage canIHave(String type, int amount) {
     // the caller will be identified by the thread he is using
-    partyService.isThisGuyVerified();
+    partyService.whoIsThisGuy();
 
     // ... actual method implementation
   }
@@ -192,7 +192,7 @@ Instead, I will do it myself. And how? What about wrapping services in a proxy a
       new Class[] { IBarService.class },
       (proxy, method, arguments) -> {
           // before every service method call verification is triggered
-          partyService.isThisGuyVerified();
+          partyService.whoIsThisGuy();
           // call the original method
           return method.invoke(target, arguments);
       }

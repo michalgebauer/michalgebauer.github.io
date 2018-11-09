@@ -41,7 +41,7 @@ export default function Index({ data }) {
         </div>
       </div>
       {posts &&
-        posts.length < 4 && (
+        posts.length < 10 && (
           <div className="no-more-posts">
             <div className="container">
               <div className="col-sm-1 col-xs-3">

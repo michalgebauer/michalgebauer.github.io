@@ -38,3 +38,7 @@
 .me-full-image {
   padding: 60px;
 }
+
+.me-image .gatsby-image-wrapper {
+  border-radius: 50%;
+}

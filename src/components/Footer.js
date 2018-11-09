@@ -19,6 +19,9 @@ export const Footer = () => {
                 <a href="https://github.com/michalgebauer">
                   <i className="fab fa-github fa-lg" />
                 </a>
+                <a href="https://www.facebook.com/mI3O-237104290338776">
+                  <i className="fab fa-facebook fa-lg" />
+                </a>
               </li>
               <li>Nitra, Slovakia</li>
             </ul>
